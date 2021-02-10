@@ -316,13 +316,15 @@ function createHTMLModal() {
 }
 
 function createLinkCartTudoForte() {
-  let dataSession = document
-    .getElementsByTagName('html')[0]
-    .getAttribute('data-checkout-session_id');
 
-  let URL = 'https://lojatestemillennium.commercesuite.com.br/';
+  let dataSession = document.getElementsByTagName('html')[0]?.getAttribute('data-session');
+ 
+  if(dataSession === null){
+     dataSession = document.getElementsByTagName('html')[0]?.getAttribute('data-checkout-session_id');
+  }
+
+  let URL = `https://${window.location.hostname}`;
   let URL_TO_FETCH_GET_CART = `${URL}/web_api/carts/${dataSession}/`;
-
 
   axios
     .get(URL_TO_FETCH_GET_CART)
@@ -341,7 +343,7 @@ function createLinkCartTudoForte() {
 
       let productsCart = products.join();
 
-      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=5575d5b8-da0f-11e8-bef0-0aa6f9202bba&partner=${partner}`;
+      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=${storeGTM}&partner=${partner}`;
 
       fetch(APIURL)
         .then((dataWrappedByPromise) => dataWrappedByPromise.json())

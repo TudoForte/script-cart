@@ -118,7 +118,7 @@ function createHTMLModal() {
         text-align: center;
         cursor: pointer;
         border-radius: 4px;
-        font-size: 32px;
+        font-size: 16px;
         color: lightgray;
         cursor: pointer
     }
@@ -231,7 +231,7 @@ function createHTMLModal() {
 
       <div id="modal" class="modal-tudoforte">
         <div class="modal-content-tudoforte">
-            <span id="close-button" class="close-button-tudoforte" onClick="removeModal()">o</span>
+            <span id="close-button" class="close-button-tudoforte" onClick="removeModal()">x</span>
 
             <h1 class="modal-content-title-tudoforte">
               <svg class="modal-content-svg-tudoforte" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
@@ -263,7 +263,7 @@ function createHTMLModal() {
                 <input id="inputWhatsapp" class="modal-content-input-whatsapp-tudoforte" type="text" placeholder="(00) 00000-0000" onkeyup="onlyNumbers(this)" /> 
                 <button id="buttonWhatsapp" class="modal-content-button-whatsapp-tudoforte" onclick="createLinkCartWithPhone()">
                   Enviar 
-                  <svg class="modal-content-button-whatsapp-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                  <svg class="modal-content-button-whatsapp-svg-tudoforte" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
                   <path d="M38.4,12.4C35.1,9.1,30.7,7.3,26,7.3c-4.7,0-9.1,1.8-12.5,5.1c-3.4,3.3-5.2,7.7-5.2,12.4v0v0c0,2.8,0.7,5.7,2.2,8.3
                     l-2.1,9.6l9.7-2.2c2.4,1.2,5.2,1.9,7.9,1.9h0c4.7,0,9.1-1.8,12.5-5.1c3.4-3.3,5.2-7.7,5.2-12.4C43.7,20.1,41.8,15.7,38.4,12.4z
                     M26,39.5L26,39.5c-2.5,0-4.9-0.6-7.1-1.8l-0.5-0.2L12,39l1.4-6.3l-0.3-0.5c-1.3-2.3-2-4.9-2-7.4C11.1,16.6,17.8,10,26,10
@@ -313,15 +313,17 @@ function createHTMLModal() {
 }
 
 function createLinkCartTudoForte() {
-  let dataSession = document
-    .getElementsByTagName('html')[0]
-    .getAttribute('data-checkout-session_id');
 
-  let URL = 'https://lojatestemillennium.commercesuite.com.br/';
+  let dataSession = document.getElementsByTagName('html')[0]?.getAttribute('data-session');
+ 
+  if(dataSession === null){
+     dataSession = document.getElementsByTagName('html')[0]?.getAttribute('data-checkout-session_id');
+  }
+
+
+  let URL = `https://${window.location.hostname}`;
   let URL_TO_FETCH_GET_CART = `${URL}/web_api/carts/${dataSession}/`;
 
-  // document.getElementById('btnCart').disabled = true;
-  // document.getElementById('btnCart').style.opacity = 0.3;
 
   axios
     .get(URL_TO_FETCH_GET_CART)
@@ -345,7 +347,7 @@ function createLinkCartTudoForte() {
 
       let productsCart = products.join();
 
-      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=5575d5b8-da0f-11e8-bef0-0aa6f9202bba&partner=${partner}`;
+      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=${storeGTM}&partner=${partner}`;
 
       fetch(APIURL)
         .then((dataWrappedByPromise) => dataWrappedByPromise.json())
@@ -354,6 +356,8 @@ function createLinkCartTudoForte() {
 
           console.log(data);
           console.log(urlShareCart);
+
+          document.getElementById('btnCart').style.display = 'none';
 
           document.getElementById('inputCart').value = urlShareCart;
 
@@ -365,9 +369,7 @@ function createLinkCartTudoForte() {
             document.getElementsByClassName('modal-content-wrapper-components-tudoforte')[0].setAttribute('style', 'display: none');
             document.getElementById('inputCart').value = '';
 
-            // document.getElementById('btnCart').disabled = false;
-            // document.getElementById('btnCart').style.opacity = 1;
-
+            document.getElementById('btnCart').style.display = 'block';
 
           }, 15000);
 
