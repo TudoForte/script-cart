@@ -1,42 +1,59 @@
 window.onload = () => createButton();
 
 function createButton() {
+  
   let button = document.createElement('button');
   button.setAttribute('id', 'button-cart');
-  button.setAttribute(
-    'style',
-    'position: fixed; left:0px; bottom: 0px;border-radius: 5px; width: 100px; height: 100px; background-color: transparent; border: 0'
-  );
+
+  let templateButtonCSS = `
+    .trigger{
+      position: fixed;
+      left: -65px; 
+      bottom:0px;
+      border-radius: 5px;
+      padding: 7px 15px;
+      background-color: #b0b0b0; 
+      color: #424242; border: 0;
+      text-transform: uppercase; 
+      transform: rotate(-90deg);
+      margin-bottom: 30%;
+      z-index: 99;
+      text-indent: 2px;
+      
+    }
+
+    .trigger > span{
+      margin-left: 5px; 
+    }
+
+    @media(max-width:320px){
+
+      .trigger{
+        left: 0px;
+        bottom: 20px;
+        padding: 5px 17px;
+        font-size: 12px;
+        margin-bottom: -10px;
+        margin-left: 25%;
+        transform: rotate(0deg) !important;
+      }
+
+    }
+  
+  ` 
+
+  let styleButton = document.createElement('style');
+  styleButton.innerHTML = templateButtonCSS;
+
   button.classList.add('trigger');
-
-  let svg = `
-          <svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
-            <ellipse transform="matrix(0.3827 -0.9239 0.9239 0.3827 -3.8938 19.1726)" style="fill:#2A4899"  cx="12.4" cy="12.5" rx="11.2" ry="11.2"/>
-            <g>
-              <path style="fill:#FFFFFF;" d="M10.6,16c-0.7,0-1.2,0.5-1.2,1.2s0.5,1.3,1.2,1.3c0.7,0,1.2-0.5,1.2-1.2S11.3,16,10.6,16z M10.6,17.8
-                c-0.4,0-0.7-0.3-0.7-0.7c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.8,0.4,0.7,0.7C11.3,17.5,11.1,17.8,10.6,17.8z"/>
-              <path style="fill:#FFFFFF;" d="M15.7,16c-0.7,0-1.2,0.5-1.2,1.2s0.5,1.3,1.2,1.3c0.6,0,1.2-0.5,1.2-1.2S16.4,16,15.7,16z M15.7,17.8
-                c-0.4,0-0.7-0.3-0.7-0.7c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.4,0.7,0.7C16.4,17.5,16.1,17.8,15.7,17.8z"/>
-              <path style="fill:#FFFFFF;" d="M17.2,12.1c-0.2,0-0.3,0.1-0.3,0.2c0,0.4-0.3,0.6-0.7,0.6H9.5L8.8,9.4h3.4c0.2,0,0.3-0.2,0.3-0.3
-                c0-0.1-0.1-0.2-0.3-0.2H8.8L8.5,7.7C8.4,7.6,8.3,7.5,8.2,7.5H6.8c-0.2,0-0.3,0-0.3,0.2S6.6,8,6.8,8H8l1.1,6.2
-                c0.2,0.8,0.9,1.4,1.7,1.4h5.7c0.2,0,0.3-0.1,0.3-0.3S16.7,15,16.5,15h-5.6c-0.6,0-1.1-0.5-1.2-1v-0.6h6.6c0.6,0,1.2-0.4,1.2-1
-                C17.5,12.2,17.4,12.2,17.2,12.1z"/>
-              <path style="fill:#FFFFFF;" d="M15.7,6.6c-1.5,0-2.7,1.2-2.7,2.7s1.2,2.7,2.7,2.7c1.4,0,2.7-1.2,2.7-2.7S17.2,6.6,15.7,6.6z M15.7,11.4
-                c-1.2,0-2.2-1-2.2-2.2s1-2.2,2.2-2.2s2.2,1.1,2.2,2.2C17.9,10.4,16.9,11.4,15.7,11.4z"/>
-              <path style="fill:#FFFFFF;" d="M16.6,9h-0.7V8.3c0-0.2-0.1-0.3-0.3-0.3c-0.2,0-0.3,0.2-0.3,0.3V9h-0.7c-0.2,0-0.3,0.1-0.3,0.2
-                c0,0.1,0.1,0.3,0.3,0.3h0.7v0.7c0,0.2,0.1,0.3,0.3,0.3c0.2,0,0.3-0.1,0.3-0.3V9.5h0.7c0.1,0,0.3-0.1,0.3-0.3
-                C16.9,9.1,16.7,9,16.6,9z"/>
-            </g>
-          </svg>
-  `;
-
-  button.insertAdjacentHTML('beforeend', svg);
+  button.innerHTML = 'Salvar <span>Orçamento</span>'
 
   button.onclick = function () {
     createHTMLModal();
     addModal();
   };
 
+  document.body.appendChild(styleButton);
   document.body.appendChild(button);
 }
 
@@ -54,6 +71,7 @@ function createHTMLModal() {
         visibility: hidden;
         transform: scale(1.1);
         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+        z-index: 99;
     }
 
     .modal-content-tudoforte {
@@ -119,7 +137,7 @@ function createHTMLModal() {
         cursor: pointer;
         border-radius: 4px;
         font-size: 16px;
-        color: lightgray;
+        color: black;
         cursor: pointer
     }
 
@@ -144,7 +162,7 @@ function createHTMLModal() {
     .modal-content-input-whatsapp-tudoforte{
         width: 125px;
         height: 40px;
-        padding: 10px;
+        padding: 0px;
         text-align: center;
         border: 1px solid lightgray;
         border-radius: 0px;
@@ -176,7 +194,7 @@ function createHTMLModal() {
         display:flex;
         justify-content: center;
         align-items: center;
-        background-color: #34B7F1;
+        background-color: #0047d9;
         color: #ffff;
     }
 
@@ -198,6 +216,7 @@ function createHTMLModal() {
 
     @media(max-width:320px){
 
+    
       .modal-content-tudoforte {
         width: 256px;
       }
@@ -222,6 +241,7 @@ function createHTMLModal() {
       .modal-content-button-copy-tudoforte{
         width: 100%;
       }
+      
 
     }
 
@@ -254,7 +274,7 @@ function createHTMLModal() {
               Compartilhar Carrinho
             </h1>
 
-            <input id="inputCart" class="modal-content-input-tudoforte" type="text" placeholder="Insira Aqui Seu Id de Parceiro" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
+            <input id="inputCart" class="modal-content-input-tudoforte" type="text" placeholder="Código do Vendedor" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
             <button id="btnCart" class="modal-content-button-tudoforte" onclick="createLinkCartTudoForte()">Gerar Link</button>
 
             <div class="modal-content-wrapper-components-tudoforte">
