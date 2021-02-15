@@ -6,6 +6,7 @@ function createButton() {
   button.setAttribute('id', 'button-cart');
 
   let templateButtonCSS = `
+  
     .trigger{
       position: fixed;
       left: -65px; 
@@ -23,10 +24,10 @@ function createButton() {
     }
 
     .trigger > span{
-      margin-left: 5px; 
+      margin-left: 3px; 
     }
 
-    @media(max-width:320px){
+    @media(max-width:465px){
 
       .trigger{
         left: 0px;
@@ -34,8 +35,24 @@ function createButton() {
         padding: 5px 17px;
         font-size: 12px;
         margin-bottom: -10px;
-        margin-left: 25%;
+        margin-left: 33%;
         transform: rotate(0deg) !important;
+      }
+
+    }
+
+    @media(max-width:375px){
+
+      .trigger{
+        margin-left: 30%;
+      }
+
+    }
+
+    @media(max-width:320px){
+
+      .trigger{
+        margin-left: 25%;
       }
 
     }
@@ -46,11 +63,13 @@ function createButton() {
   styleButton.innerHTML = templateButtonCSS;
 
   button.classList.add('trigger');
-  button.innerHTML = 'Salvar <span>Orçamento</span>'
+  button.innerHTML = 'Salvar <span>OrÃ§amento</span>'
 
   button.onclick = function () {
+
     createHTMLModal();
     addModal();
+  
   };
 
   document.body.appendChild(styleButton);
@@ -145,7 +164,7 @@ function createHTMLModal() {
     }
 
     .modal-content-wrapper-components-tudoforte{
-        display: flex;
+        display: none;
         justify-content: space-between;
         align-items: center;
         width: 100%;
@@ -273,6 +292,7 @@ function createHTMLModal() {
             </h1>
 
             <input id="inputCart" style="opacity: 0; height: 1px;"></input>
+            <button id="btnCart" class="modal-content-button-tudoforte" onclick="createLinkCartTudoForte()">Gerar Link</button>
 
 
             <div class="modal-content-wrapper-components-tudoforte">
@@ -358,7 +378,7 @@ function createLinkCartTudoForte() {
 
       let productsCart = products.join();
 
-      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=${storeGTM}&partner=${partner}`;
+      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=14251116-6e08-11eb-a750-0242ac110002&partner=${partner}`;
 
       fetch(APIURL)
         .then((dataWrappedByPromise) => dataWrappedByPromise.json())
@@ -368,7 +388,22 @@ function createLinkCartTudoForte() {
           console.log(data);
           console.log(urlShareCart);
 
+          document.getElementById('btnCart').style.display = 'none';
+
           document.getElementById('inputCart').value = urlShareCart;
+
+          document
+          .getElementsByClassName('modal-content-wrapper-components-tudoforte')[0]
+          .setAttribute('style', 'display: flex');
+
+
+          setTimeout(() => {
+            document.getElementsByClassName('modal-content-wrapper-components-tudoforte')[0].setAttribute('style', 'display: none');
+            document.getElementById('inputCart').value = '';
+
+            document.getElementById('btnCart').style.display = 'block';
+
+          }, 15000);
 
         });
     })

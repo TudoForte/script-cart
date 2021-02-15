@@ -6,39 +6,56 @@ function createButton() {
   button.setAttribute('id', 'button-cart');
 
   let templateButtonCSS = `
+    
+  .trigger{
+    position: fixed;
+    left: -65px; 
+    bottom:0px;
+    border-radius: 5px;
+    padding: 7px 15px;
+    background-color: #b0b0b0; 
+    color: #424242; border: 0;
+    text-transform: uppercase; 
+    transform: rotate(-90deg);
+    margin-bottom: 30%;
+    z-index: 99;
+    text-indent: 2px;
+    
+  }
+
+  .trigger > span{
+    margin-left: 3px; 
+  }
+
+  @media(max-width:465px){
+
     .trigger{
-      position: fixed;
-      left: -65px; 
-      bottom:0px;
-      border-radius: 5px;
-      padding: 7px 15px;
-      background-color: #b0b0b0; 
-      color: #424242; border: 0;
-      text-transform: uppercase; 
-      transform: rotate(-90deg);
-      margin-bottom: 30%;
-      z-index: 99;
-      text-indent: 2px;
-      
+      left: 0px;
+      bottom: 20px;
+      padding: 5px 17px;
+      font-size: 12px;
+      margin-bottom: -10px;
+      margin-left: 33%;
+      transform: rotate(0deg) !important;
     }
 
-    .trigger > span{
-      margin-left: 5px; 
+  }
+
+  @media(max-width:375px){
+
+    .trigger{
+      margin-left: 30%;
     }
 
-    @media(max-width:320px){
+  }
 
-      .trigger{
-        left: 0px;
-        bottom: 20px;
-        padding: 5px 17px;
-        font-size: 12px;
-        margin-bottom: -10px;
-        margin-left: 25%;
-        transform: rotate(0deg) !important;
-      }
+  @media(max-width:320px){
 
+    .trigger{
+      margin-left: 25%;
     }
+
+  }
   
   ` 
 
