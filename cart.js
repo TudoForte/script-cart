@@ -9,7 +9,7 @@ function createButton() {
     
   .trigger{
     position: fixed;
-    left: -65px; 
+    left: -60px; 
     bottom:0px;
     border-radius: 5px;
     padding: 7px 15px;
@@ -19,8 +19,7 @@ function createButton() {
     transform: rotate(-90deg);
     margin-bottom: 30%;
     z-index: 99;
-    text-indent: 2px;
-    
+    font-size: 13px;
   }
 
   .trigger > span{
@@ -63,7 +62,7 @@ function createButton() {
   styleButton.innerHTML = templateButtonCSS;
 
   button.classList.add('trigger');
-  button.innerHTML = 'Salvar <span>Orçamento</span>'
+  button.innerHTML = 'Salvar <span>OrÃ§amento</span>'
 
   button.onclick = function () {
     createHTMLModal();
@@ -291,7 +290,7 @@ function createHTMLModal() {
               Compartilhar Carrinho
             </h1>
 
-            <input id="inputCart" class="modal-content-input-tudoforte" type="text" placeholder="Código do Vendedor" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
+            <input id="inputCart" class="modal-content-input-tudoforte" type="text" placeholder="CÃ³digo do Vendedor" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
             <button id="btnCart" class="modal-content-button-tudoforte" onclick="createLinkCartTudoForte()">Gerar Link</button>
 
             <div class="modal-content-wrapper-components-tudoforte">
@@ -384,7 +383,7 @@ function createLinkCartTudoForte() {
 
       let productsCart = products.join();
 
-      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=${storeGTM}&partner=${partner}`;
+      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=14251116-6e08-11eb-a750-0242ac110002&partner=${partner}`;
 
       fetch(APIURL)
         .then((dataWrappedByPromise) => dataWrappedByPromise.json())

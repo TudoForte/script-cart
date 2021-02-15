@@ -9,7 +9,7 @@ function createButton() {
   
     .trigger{
       position: fixed;
-      left: -65px; 
+      left: -60px; 
       bottom:0px;
       border-radius: 5px;
       padding: 7px 15px;
@@ -19,8 +19,7 @@ function createButton() {
       transform: rotate(-90deg);
       margin-bottom: 30%;
       z-index: 99;
-      text-indent: 2px;
-      
+      font-size: 13px;
     }
 
     .trigger > span{
@@ -31,7 +30,7 @@ function createButton() {
 
       .trigger{
         left: 0px;
-        bottom: 20px;
+        bottom: 24px;
         padding: 5px 17px;
         font-size: 12px;
         margin-bottom: -10px;
