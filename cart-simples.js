@@ -1,6 +1,4 @@
-if(window.location.pathname === '/checkout/cart'){
-  window.onload = () => createButton();
-}
+window.onload = () => createButton();
 
 function createButton() {
 

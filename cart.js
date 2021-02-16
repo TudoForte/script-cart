@@ -1,7 +1,4 @@
-
-if(window.location.pathname === '/checkout/cart'){
-  window.onload = () => createButton();
-}
+window.onload = () => createButton();
 
 function createButton() {
   
@@ -386,7 +383,7 @@ function createLinkCartcanalfy() {
 
       let productsCart = products.join();
 
-      let APIURL = `https://carrinho.canalfy.com/api/cart/session/share?products=${productsCart}&store=14251116-6e08-11eb-a750-0242ac110002&partner=${partner}`;
+      let APIURL = `https://carrinho.canalfy.com/api/cart/session/share?products=${productsCart}&store=${storeGTM}&partner=${partner}`;
 
       fetch(APIURL)
         .then((dataWrappedByPromise) => dataWrappedByPromise.json())
