@@ -9,10 +9,10 @@ function createButton() {
     
   .trigger{
     position: fixed;
-    left: -60px; 
+    left: -65px; 
     bottom:0px;
     border-radius: 5px;
-    padding: 7px 15px;
+    padding: 3px 15px;
     background-color: #b0b0b0; 
     color: #424242; border: 0;
     text-transform: uppercase; 
@@ -461,6 +461,11 @@ function copyToClipboard() {
   document.execCommand('copy');
 
   changeTextButtonCopy();
+}
+
+function changeTextButtonCopy(){
+  buttonCopy = document.getElementById('buttonCopy')
+  buttonCopy.innerHTML = 'Link Copiado!';
 }
 
 function createLinkCartWithPhone() {

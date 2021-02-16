@@ -9,10 +9,10 @@ function createButton() {
   
     .trigger{
       position: fixed;
-      left: -60px; 
+      left: -65px; 
       bottom:0px;
       border-radius: 5px;
-      padding: 7px 15px;
+      padding: 3px 15px;
       background-color: #b0b0b0; 
       color: #424242; border: 0;
       text-transform: uppercase; 
@@ -124,6 +124,7 @@ function createHTMLModal() {
     }
 
     .modal-content-input-tudoforte{
+        display: none;
         width: 100%;
         height: 40px;
         text-align: left;
@@ -289,13 +290,12 @@ function createHTMLModal() {
               Compartilhar Carrinho
 
             </h1>
-
-            <input id="inputCart" style="opacity: 0; height: 1px;"></input>
+            <input id="inputCart" class="modal-content-input-tudoforte"></input>
             <button id="btnCart" class="modal-content-button-tudoforte" onclick="createLinkCartTudoForte()">Gerar Link</button>
 
 
             <div class="modal-content-wrapper-components-tudoforte">
-
+             
               <div class="modal-content-wrapper-whatsapp-tudoforte">
                 <input id="inputWhatsapp" class="modal-content-input-whatsapp-tudoforte" type="text" placeholder="(00) 00000-0000" onkeyup="onlyNumbers(this)" /> 
                 <button id="buttonWhatsapp" class="modal-content-button-whatsapp-tudoforte" onclick="createLinkCartWithPhone()">
@@ -351,6 +351,7 @@ function createHTMLModal() {
 
 function createLinkCartTudoForte() {
 
+
   let dataSession = document.getElementsByTagName('html')[0]?.getAttribute('data-session');
  
   if(dataSession === null){
@@ -382,6 +383,8 @@ function createLinkCartTudoForte() {
       fetch(APIURL)
         .then((dataWrappedByPromise) => dataWrappedByPromise.json())
         .then((data) => {
+          
+
           const urlShareCart = data.redirect;
 
           console.log(data);
@@ -395,12 +398,17 @@ function createLinkCartTudoForte() {
           .getElementsByClassName('modal-content-wrapper-components-tudoforte')[0]
           .setAttribute('style', 'display: flex');
 
+          document
+          .getElementsByClassName('modal-content-input-tudoforte')[0]
+          .setAttribute('style', 'display: flex');
+
 
           setTimeout(() => {
+            
             document.getElementsByClassName('modal-content-wrapper-components-tudoforte')[0].setAttribute('style', 'display: none');
-            document.getElementById('inputCart').value = '';
-
+            document.getElementsByClassName('modal-content-input-tudoforte')[0].setAttribute('style', 'display: none');
             document.getElementById('btnCart').style.display = 'block';
+            
 
           }, 15000);
 
