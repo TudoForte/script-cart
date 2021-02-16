@@ -64,7 +64,7 @@ function createButton() {
   styleButton.innerHTML = templateButtonCSS;
 
   button.classList.add('trigger');
-  button.innerHTML = 'Salvar <span>OrÃ§amento</span>'
+  button.innerHTML = 'Salvar <span>Orçamento</span>'
 
   button.onclick = function () {
 

@@ -65,7 +65,7 @@ function createButton() {
   styleButton.innerHTML = templateButtonCSS;
 
   button.classList.add('trigger');
-  button.innerHTML = 'Salvar <span>OrÃ§amento</span>'
+  button.innerHTML = 'Salvar <span>Orçamento</span>'
 
   button.onclick = function () {
     createHTMLModal();
@@ -293,7 +293,7 @@ function createHTMLModal() {
               Compartilhar Carrinho
             </h1>
 
-            <input id="inputCart" class="modal-content-input-canalfy" type="text" placeholder="CÃ³digo do Vendedor" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
+            <input id="inputCart" class="modal-content-input-canalfy" type="text" placeholder="Código do Vendedor" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
             <button id="btnCart" class="modal-content-button-canalfy" onclick="createLinkCartcanalfy()">Gerar Link</button>
 
             <div class="modal-content-wrapper-components-canalfy">
