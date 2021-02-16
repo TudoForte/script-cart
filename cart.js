@@ -1,4 +1,7 @@
-window.onload = () => createButton();
+
+if(window.location.pathname === '/checkout/cart'){
+  window.onload = () => createButton();
+}
 
 function createButton() {
   
@@ -76,7 +79,7 @@ function createButton() {
 function createHTMLModal() {
   let templateCSS = `
 
-    .modal-tudoforte {
+    .modal-canalfy {
         position: fixed;
         left: 0;
         top: 0;
@@ -90,7 +93,7 @@ function createHTMLModal() {
         z-index: 99;
     }
 
-    .modal-content-tudoforte {
+    .modal-content-canalfy {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -105,7 +108,7 @@ function createHTMLModal() {
         border-radius: 8px;
     }
 
-    .modal-content-title-tudoforte{
+    .modal-content-title-canalfy{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -114,14 +117,14 @@ function createHTMLModal() {
         font-weight: 600;
     }
 
-    .modal-content-svg-tudoforte{
+    .modal-content-svg-canalfy{
         width: 50px;
         height: 50px;
         color: gray;
         fill: gray;
     }
 
-    .modal-content-input-tudoforte{
+    .modal-content-input-canalfy{
         width: 100%;
         height: 40px;
         padding: 20px;
@@ -131,7 +134,7 @@ function createHTMLModal() {
         border-radius: 0px;
     }
 
-    .modal-content-button-tudoforte{
+    .modal-content-button-canalfy{
         width: 100%;
         height: 40px;
         text-align: center;
@@ -142,7 +145,7 @@ function createHTMLModal() {
         text-transform: uppercase;
     }
 
-    .close-button-tudoforte {
+    .close-button-canalfy {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -157,25 +160,25 @@ function createHTMLModal() {
         cursor: pointer
     }
 
-    .close-button-tudoforte:hover{
+    .close-button-canalfy:hover{
         color: gray;
     }
 
-    .modal-content-wrapper-components-tudoforte{
+    .modal-content-wrapper-components-canalfy{
         display: none;
         justify-content: space-between;
         align-items: center;
         width: 100%;
     }
 
-    .modal-content-wrapper-whatsapp-tudoforte{
+    .modal-content-wrapper-whatsapp-canalfy{
         display: flex;
         align-items: center;
         justify-content: center;
         margin-top: 16px;
     }
 
-    .modal-content-input-whatsapp-tudoforte{
+    .modal-content-input-whatsapp-canalfy{
         width: 125px;
         height: 40px;
         padding: 0px;
@@ -184,7 +187,7 @@ function createHTMLModal() {
         border-radius: 0px;
     }
 
-    .modal-content-button-whatsapp-tudoforte{
+    .modal-content-button-whatsapp-canalfy{
         background-color: #25D366;
         border: 0px;
         color: #ffff;
@@ -195,14 +198,14 @@ function createHTMLModal() {
         align-items: center;
     }
 
-    .modal-content-button-whatsapp-svg-tudoforte{
+    .modal-content-button-whatsapp-svg-canalfy{
         width: 25px;
         height: 25px;
         color: #ffff;
         fill: #ffff;
     }
 
-    .modal-content-button-copy-tudoforte{
+    .modal-content-button-copy-canalfy{
         width: 100px;
         height: 40px;
         border: 0px;
@@ -214,14 +217,14 @@ function createHTMLModal() {
         color: #ffff;
     }
 
-    .modal-content-button-copy-svg-tudoforte{
+    .modal-content-button-copy-svg-canalfy{
         width: 25px;
         height: 25px;
         color: #ffff;
         fill: #ffff;
     }
 
-    .show-modal-tudoforte {
+    .show-modal-canalfy {
         display: block;
         opacity: 1;
         visibility: visible;
@@ -233,28 +236,28 @@ function createHTMLModal() {
     @media(max-width:320px){
 
     
-      .modal-content-tudoforte {
+      .modal-content-canalfy {
         width: 256px;
       }
 
-      .modal-content-wrapper-components-tudoforte{
+      .modal-content-wrapper-components-canalfy{
         flex-direction: column;
       }
 
-      .modal-content-button-whatsapp-tudoforte{
+      .modal-content-button-whatsapp-canalfy{
         width: 81px;
       }
 
-      .modal-content-svg-tudoforte {
+      .modal-content-svg-canalfy {
         width: 35px;
         height: 40px;
       }
 
-      .modal-content-title-tudoforte{
+      .modal-content-title-canalfy{
         font-size: 15px;
       }
 
-      .modal-content-button-copy-tudoforte{
+      .modal-content-button-copy-canalfy{
         width: 100%;
       }
       
@@ -265,12 +268,12 @@ function createHTMLModal() {
 
   let templateHTML = `
 
-      <div id="modal" class="modal-tudoforte">
-        <div class="modal-content-tudoforte">
-            <span id="close-button" class="close-button-tudoforte" onClick="removeModal()">x</span>
+      <div id="modal" class="modal-canalfy">
+        <div class="modal-content-canalfy">
+            <span id="close-button" class="close-button-canalfy" onClick="removeModal()">x</span>
 
-            <h1 class="modal-content-title-tudoforte">
-              <svg class="modal-content-svg-tudoforte" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+            <h1 class="modal-content-title-canalfy">
+              <svg class="modal-content-svg-canalfy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
                 <g>
                   <path d="M17.3,17.6c-1,0-1.8,0.8-1.8,1.8s0.8,1.9,1.8,1.9s1.8-0.8,1.8-1.8S18.3,17.6,17.3,17.6z M17.3,20.5c-0.6,0-1.1-0.5-1.1-1.1
                     s0.5-1.1,1.1-1.1s1.1,0.5,1.1,1.1S17.9,20.5,17.3,20.5z"/>
@@ -290,16 +293,16 @@ function createHTMLModal() {
               Compartilhar Carrinho
             </h1>
 
-            <input id="inputCart" class="modal-content-input-tudoforte" type="text" placeholder="CÃ³digo do Vendedor" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
-            <button id="btnCart" class="modal-content-button-tudoforte" onclick="createLinkCartTudoForte()">Gerar Link</button>
+            <input id="inputCart" class="modal-content-input-canalfy" type="text" placeholder="CÃ³digo do Vendedor" onkeyup="onlyNumbers(this)" onfocus="resetInput()" /> 
+            <button id="btnCart" class="modal-content-button-canalfy" onclick="createLinkCartcanalfy()">Gerar Link</button>
 
-            <div class="modal-content-wrapper-components-tudoforte">
+            <div class="modal-content-wrapper-components-canalfy">
 
-              <div class="modal-content-wrapper-whatsapp-tudoforte">
-                <input id="inputWhatsapp" class="modal-content-input-whatsapp-tudoforte" type="text" placeholder="(00) 00000-0000" onkeyup="onlyNumbers(this)" /> 
-                <button id="buttonWhatsapp" class="modal-content-button-whatsapp-tudoforte" onclick="createLinkCartWithPhone()">
+              <div class="modal-content-wrapper-whatsapp-canalfy">
+                <input id="inputWhatsapp" class="modal-content-input-whatsapp-canalfy" type="text" placeholder="(00) 00000-0000" onkeyup="onlyNumbers(this)" /> 
+                <button id="buttonWhatsapp" class="modal-content-button-whatsapp-canalfy" onclick="createLinkCartWithPhone()">
                   Enviar 
-                  <svg class="modal-content-button-whatsapp-svg-tudoforte" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                  <svg class="modal-content-button-whatsapp-svg-canalfy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
                   <path d="M38.4,12.4C35.1,9.1,30.7,7.3,26,7.3c-4.7,0-9.1,1.8-12.5,5.1c-3.4,3.3-5.2,7.7-5.2,12.4v0v0c0,2.8,0.7,5.7,2.2,8.3
                     l-2.1,9.6l9.7-2.2c2.4,1.2,5.2,1.9,7.9,1.9h0c4.7,0,9.1-1.8,12.5-5.1c3.4-3.3,5.2-7.7,5.2-12.4C43.7,20.1,41.8,15.7,38.4,12.4z
                     M26,39.5L26,39.5c-2.5,0-4.9-0.6-7.1-1.8l-0.5-0.2L12,39l1.4-6.3l-0.3-0.5c-1.3-2.3-2-4.9-2-7.4C11.1,16.6,17.8,10,26,10
@@ -313,9 +316,9 @@ function createHTMLModal() {
                 </button>
               </div>
 
-              <button id="buttonCopy" class="modal-content-button-copy-tudoforte" onclick="copyToClipboard()">
+              <button id="buttonCopy" class="modal-content-button-copy-canalfy" onclick="copyToClipboard()">
                 Copiar
-                <svg class="modal-content-button-copy-svg-tudoforte" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <svg class="modal-content-button-copy-svg-canalfy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
                   <g>
                     <path d="M42,10.9l-4.6-4.6c-0.4-0.4-0.9-0.6-1.4-0.6H21.1c-1.1,0-2,0.9-2,2v4.5h-7.7c-1.1,0-2,0.9-2,2v13c0,1,1.5,1,1.5,0v-13
                       c0-0.3,0.2-0.5,0.5-0.5h14.6v3.4c0,1.1,0.9,2,2,2h3.4V42c0,0.3-0.2,0.5-0.5,0.5H11.3c-0.3,0-0.5-0.2-0.5-0.5v-8.5c0-1-1.5-1-1.5,0
@@ -348,7 +351,7 @@ function createHTMLModal() {
   getButton.insertAdjacentHTML('beforebegin', templateHTML);
 }
 
-function createLinkCartTudoForte() {
+function createLinkCartcanalfy() {
 
   let dataSession = document.getElementsByTagName('html')[0]?.getAttribute('data-session');
  
@@ -383,7 +386,7 @@ function createLinkCartTudoForte() {
 
       let productsCart = products.join();
 
-      let APIURL = `https://carrinho.tudoforte.com.br/api/cart/session/share?products=${productsCart}&store=14251116-6e08-11eb-a750-0242ac110002&partner=${partner}`;
+      let APIURL = `https://carrinho.canalfy.com/api/cart/session/share?products=${productsCart}&store=14251116-6e08-11eb-a750-0242ac110002&partner=${partner}`;
 
       fetch(APIURL)
         .then((dataWrappedByPromise) => dataWrappedByPromise.json())
@@ -398,11 +401,11 @@ function createLinkCartTudoForte() {
           document.getElementById('inputCart').value = urlShareCart;
 
           document
-            .getElementsByClassName('modal-content-wrapper-components-tudoforte')[0]
+            .getElementsByClassName('modal-content-wrapper-components-canalfy')[0]
             .setAttribute('style', 'display: flex');
 
           setTimeout(() => {
-            document.getElementsByClassName('modal-content-wrapper-components-tudoforte')[0].setAttribute('style', 'display: none');
+            document.getElementsByClassName('modal-content-wrapper-components-canalfy')[0].setAttribute('style', 'display: none');
             document.getElementById('inputCart').value = '';
 
             document.getElementById('btnCart').style.display = 'block';
@@ -427,12 +430,12 @@ function resetInput() {
 
 function addModal() {
   let modalElement = document.getElementById('modal');
-  modalElement.classList.add('show-modal-tudoforte');
+  modalElement.classList.add('show-modal-canalfy');
 }
 
 function removeModal() {
   let modalElement = document.getElementById('modal');
-  modalElement.classList.remove('show-modal-tudoforte');
+  modalElement.classList.remove('show-modal-canalfy');
 }
 
 function windowOnClick(event) {
