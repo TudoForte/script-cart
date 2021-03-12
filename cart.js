@@ -378,7 +378,7 @@ function createLinkCartcanalfy() {
 
       let partner;
       if (document.getElementById('inputCart').value === '') {
-        partner = 1;
+        partner = null;
       } else {
         partner = document.getElementById('inputCart').value;
       }
